@@ -28,5 +28,6 @@ int main(int argc, char *argv[]) {
 	 print_bingo(Table2); 
 	 
 	 
+	 
 	return 0;
 }
