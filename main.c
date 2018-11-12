@@ -27,7 +27,9 @@ int main(int argc, char *argv[]) {
 	 
 	/* Table2 print*/
 	 printf("[Computer Table]\n");
-	 print_bingo(Table2); 
+	 print_bingo(Table2);
+	 
+	
 	 
 	 
 	 

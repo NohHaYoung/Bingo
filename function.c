@@ -1,7 +1,7 @@
 #include <time.h>
 #include <stdio.h>
 
-int N=5;
+#define N 5
 #define COLS N
 
 /* 초기 빙고 테이블을 생성하는 함수*/
