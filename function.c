@@ -1,15 +1,15 @@
 #include <time.h>
 #include <stdio.h>
 
-#define N 5
+#define N 3
 #define COLS N
 
 /* 초기 빙고 테이블을 생성하는 함수*/
-int initiate_bingo(int N, int A[][COLS], int B[][COLS]){
+int initiate_bingo(int C, int A[][C], int B[][C]){
 
    int i=0, j=0; // 중복 체크에 필요한 변수
    int m, n; // 빙고판에 난수를 할당하기 위해 필요한 변수 
-   int max = N*N;
+   int max = C*C;
 
    int CheckNum[max]; //중복을 체크하기 위한 배열
    
@@ -35,8 +35,8 @@ int initiate_bingo(int N, int A[][COLS], int B[][COLS]){
 		}
 	/*i값 초기화 후 1차원 배열 CheckNum을 2차원배열 A로 옮김*/ 
 	i = 0;
-		for(int m=0; m<N; m++){
-			for(n=0;n<N;n++){
+		for(int m=0; m<C; m++){
+			for(n=0;n<C;n++){
 				A[m][n] = CheckNum[i];
 				i++;
 			}
@@ -54,8 +54,8 @@ int initiate_bingo(int N, int A[][COLS], int B[][COLS]){
 	
 	/*i값 초기화 후 1차원 배열 CheckNum을 2차원배열 B로 옮김*/
 	i = 0;
-		for(int m=0; m<N; m++){
-			for(n=0;n<N;n++){
+		for(int m=0; m<C; m++){
+			for(n=0;n<C;n++){
 				B[m][n] = CheckNum[i];
 				i++;
 			}

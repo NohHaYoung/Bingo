@@ -3,7 +3,7 @@
 #include <time.h>
 #include "function.h"
 
-#define N 5 // N*N 빙고의 N값을 결정하는 기호 상수 
+#define N 3 // N*N 빙고의 N값을 결정하는 기호 상수 
 #define M 3 // 승패를 결정하는 기호상수, M개 줄이 먼저 완성된 쪽이 승리 
 
 #define ROWS N
