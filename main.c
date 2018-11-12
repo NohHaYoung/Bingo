@@ -17,14 +17,16 @@ int main(int argc, char *argv[]) {
 	 int Table1[ROWS][COLS];
 	 int Table2[ROWS][COLS];
 	
-	/*1~N*N까지 범위 내의 난수를 발생시켜 앞서 정의한 빙고테이블 table1에 중복없이 랜덤으로 배열하는 함수
-	 table 1의 현재 상황을 프린트하는 함수*/
-	 initiate_bingo(N, Table1);
+	/*1~N*N까지 범위 내의 난수를 발생시켜 앞서 정의한 빙고테이블 table1과 table2에 중복없이 랜덤으로 배열하는 함수*/
+	initiate_bingo(N, Table1, Table2);
+	
+	/*Table1 print*/
+	 printf("[player Table]\n");
 	 print_bingo(Table1); 
 	
 	 
-	/* Table2 */
-	 initiate_bingo(N, Table2);
+	/* Table2 print*/
+	 printf("[Computer Table]\n");
 	 print_bingo(Table2); 
 	 
 	 
