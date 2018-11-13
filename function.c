@@ -77,3 +77,4 @@ int	print_bingo(int A[][COLS]){
 		
 	printf("\n");
  }
+ 

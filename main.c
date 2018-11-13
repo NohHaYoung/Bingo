@@ -36,10 +36,35 @@ int main(int argc, char *argv[]) {
 	
 	 printf("%d 번째 Turn", turn); 
 	 printf("사용자 : %d 줄 빙고, 컴퓨터 : %d 줄 빙고", BingoUser, BingoCom);
-	 printf("원하는 숫자를 입력하시오(1~%d) : ", N*N);
-	 scanf("%d", &Num);
+	
+	/*사용자 숫자 선택*/
+	get_number_byMe(void){
+		if(count_bingo(BingoCom)==M || count_bingo(BingoUser)==M){
+			break;
+		}
+	}
+	
+	/*컴퓨터 숫자 선택*/
+	get_number_byCom(void){
+		if(count_bingo(BingoCom)==M || count_bingo(BingoUser)==M){
+			break;
+		}
+	}
 	 
-	} while()
+	 
+	 
+	} while(count_bingo(BingoCom)!=M&&countBingo(BingoUser)!=M){
+		if(/*player 승리*/){
+			printf("turn : %d\n", turn);
+			printf("승리하였습니다.\n");
+		} 
+		
+		else(/*computer 승리*/){
+			printf("turn : %d\n", turn);
+			printf("패배하였습니다.\n");
+			
+		}
+	}
 	
 	 
 	 
