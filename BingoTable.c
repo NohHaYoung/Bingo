@@ -1,9 +1,6 @@
 #include <time.h>
 #include <stdio.h>
 
-#define N 3
-#define COLS N
-
 /* 초기 빙고 테이블을 생성하는 함수*/
 int initiate_bingo(int C, int A[][C], int B[][C]){
 
@@ -15,7 +12,7 @@ int initiate_bingo(int C, int A[][C], int B[][C]){
    
    /*배열을 셔플하기 위한 변수*/
    int p;
-   int ran;
+   int rnd;
    int temp=0; 
    
 
@@ -44,7 +41,7 @@ int initiate_bingo(int C, int A[][C], int B[][C]){
 
 	//배열 A와 B의 값이 다르게 설정되도록 셔플(Computer Bingo Table != Player Bingo Table) 
 	while(p<max){
-		ran=rand()%max+1;
+		rnd=rand()%max+1;
 		
 		temp = CheckNum[0];
 		CheckNum[0] = CheckNum[ran];
