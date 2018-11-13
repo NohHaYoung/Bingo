@@ -31,20 +31,23 @@ int get_number_byMe(int N, int Num, int Table1[][N], int Table2[][N]){
 	/*사용자가 입력한 정수 처리
 	1. 입력한 정수와 배열이 일치할 경우 process_bingo로 처리
 	2. 입력한 정수가 빙고판에 없는 숫자일 경우 다시 입력받음*/
-	do{for(i=0;i<N;i++){
-		for(j=0;j<N;j++){
-			if(Num==Table1[i][j]){
-				break;
+	
+	while(1){
+		for(i=0;i<N;i++){
+			for(j=0;j<N;j++){
+				if(Num!=Table1[i][j]){
+					printf("ERROR, 다른 숫자를 입력하시오 : ");
+					scanf("%d", &Num);
+				}
+					
+				else{
+					break;
+				}
 			}
-			else{
-				printf("ERROR! 다른 숫자를 입력하시오.");
-				scanf("%d",&Num);
-			}
-		 }
-		}
-	}while(Num==Table1[i][j]);{
-	 process_bingo(N, Num, Table1, Table2);
+		} 
+	
 	}
+	process_bingo(N, Num, Table1, Table2);
 }
 
 int get_number_byCom(int N, int Num, int Table1[][N], int Table2[][N]){
