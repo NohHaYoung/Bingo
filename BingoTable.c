@@ -44,8 +44,8 @@ int initiate_bingo(int C, int A[][C], int B[][C]){
 		rnd=rand()%max+1;
 		
 		temp = CheckNum[0];
-		CheckNum[0] = CheckNum[ran];
-		CheckNum[ran] = temp;
+		CheckNum[0] = CheckNum[rnd];
+		CheckNum[rnd] = temp;
 		p++;
 	}
 	
@@ -60,16 +60,16 @@ int initiate_bingo(int C, int A[][C], int B[][C]){
 	
 }
 
-int	print_bingo(int A[][COLS]){
+int	print_bingo(int A, int B[][A]){
 	
 		
 	/*반복문에서 행과 열을 세는 변수 i, j*/ 
 	int i;
 	int j;
 			
-	for(i=0;i<N;i++){
-		{for (j=0;j<N;j++)
-			printf("%3d ", A[i][j]);}
+	for(i=0;i<A;i++){
+		{for (j=0;j<A;j++)
+			printf("%3d ", B[i][j]);}
 		printf("\n");}
 		
 	printf("\n");

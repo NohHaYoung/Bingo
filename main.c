@@ -29,24 +29,23 @@ int main(int argc, char *argv[]){
 	while(1){
 			/*Table1 print*/
 	 printf("[player Table]\n");
-	 print_bingo(Table1); 
+	 print_bingo(N, Table1); 
 	
 	 
 	/* Table2 print*/
 	 printf("[Computer Table]\n");
-	 print_bingo(Table2);
+	 print_bingo(N, Table2);
 	
 	 printf("%d 번째 Turn", turn); 
 	 printf("사용자 : %d 줄 빙고, 컴퓨터 : %d 줄 빙고\n", BingoUser, BingoCom);
 	
 	/*사용자 숫자 선택*/
-	 get_number_byMe(N, Num);
+	 get_number_byMe(N, Num, Table1, Table2);
 	 		
 	}
 	
-	
 	/*컴퓨터 숫자 선택*/
-	get_number_byCom(void);
+	get_number_byCom(N, Num, Table1, Table2);
 	 
 	 
 	 
