@@ -36,7 +36,7 @@ int main(int argc, char *argv[]){
 	 printf("[Computer Table]\n");
 	 print_bingo(N, Table2);
 	
-	 printf("%d 번째 Turn", turn); 
+	 printf("%d 번째 Turn / ", turn); 
 	 printf("사용자 : %d 줄 빙고, 컴퓨터 : %d 줄 빙고\n", BingoUser, BingoCom);
 	
 	/*사용자 숫자 선택*/
