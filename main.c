@@ -63,9 +63,17 @@ int main(int argc, char *argv[]){
 		break;
 	}
  
-	
+	if(Count1 == M && Count2 != M){
+		printf("User Win, Turn = %d\n", turn);
+	}
 
-	 
+	else if(Count2 == M && Count1 != M){
+		printf("Computer Win, Turn = %d\n", turn);
+	}
+	else if(Count1 == M && Count2 == M){
+		printf("Draw\n");
+	}
+
 	 
 
 	return 0;

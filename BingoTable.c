@@ -13,7 +13,7 @@ int initiate_bingo(int N, int Table1[][N], int Table2[][N]){
    /*배열을 셔플하기 위한 변수*/
    int p;
    int rnd;
-   int temp=0; 
+   int temp; 
    
 
    srand((unsigned int)time(NULL));
@@ -40,13 +40,13 @@ int initiate_bingo(int N, int Table1[][N], int Table2[][N]){
 		}
 
 	//배열 A와 B의 값이 다르게 설정되도록 셔플(Computer Bingo Table != Player Bingo Table) 
-	while(p<max){
-		rnd=rand()%max+1;
+	for(i=0;i<N;i++){
+		rnd = rand()%max;
 		
-		temp = CheckNum[0];
-		CheckNum[0] = CheckNum[rnd];
+		temp = CheckNum[i];
+		CheckNum[i] = CheckNum[rnd];
 		CheckNum[rnd] = temp;
-		p++;
+		
 	}
 	
 	/*i값 초기화 후 1차원 배열 CheckNum을 2차원배열 B로 옮김*/

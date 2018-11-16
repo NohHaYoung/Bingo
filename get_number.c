@@ -26,6 +26,7 @@ int process_bingo(int N, int Num, int Table1[][N], int Table2[][N]){
 	}
 	
 	return Table1, Table2;
+	
 }
 
 int get_number_byMe(int N, int Num, int Table1[][N], int Table2[][N]){
@@ -39,6 +40,8 @@ int get_number_byMe(int N, int Num, int Table1[][N], int Table2[][N]){
 
 	/*사용자가 입력한 정수를 처리하는 함수*/
 	 process_bingo(N, Num, Table1, Table2);
+	 
+	return Table1, Table2;
 }
 
 int get_number_byCom(int N, int Num, int Table1[][N], int Table2[][N]){
