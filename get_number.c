@@ -24,6 +24,8 @@ int process_bingo(int N, int Num, int Table1[][N], int Table2[][N]){
 	if(Table2[m][n]==Num){
 		Table2[m][n] = -1;
 	}
+	
+	return Table1, Table2;
 }
 
 int get_number_byMe(int N, int Num, int Table1[][N], int Table2[][N]){
@@ -55,4 +57,4 @@ int get_number_byCom(int N, int Num, int Table1[][N], int Table2[][N]){
 		Table2[m][n] = -1;
 	}
 	
-	}
+}

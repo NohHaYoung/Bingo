@@ -60,6 +60,7 @@ int initiate_bingo(int N, int Table1[][N], int Table2[][N]){
 	
 }
 
+/*빙고테이블을 프린트하는 함수*/
 int	print_bingo(int N, int Table[][N]){
 	
 		
@@ -74,35 +75,38 @@ int	print_bingo(int N, int Table[][N]){
 		
 	printf("\n");
  }
- 
-int count_bingo(int N, int M, int Table[][N], int Count[2*M+2]){
-	int Sum = 0;
+
+/*빙고 수를 세는 함수*/
+int count_bingo(int N, int M, int Table[][N], int Count){
+	
 	int i, j;
+	int Sum[2*N+2];
 	
 	/*가로줄 빙고*/
 	for(i=0;i<N;i++){
 		for(j=0;j<N;j++){
-			Sum = Sum + Table[i][j];
+			Sum[i] = Sum[i] + Table[i][j];
 		}
-		Count[i] = Sum;
 	}
-	
-	Sum = 0; // 초기화 
+	 
 	/*세로줄 빙고*/
 	for(j=0;j<N;j++){
 		for(i=0;i<N;i++){
-			Sum = Sum + Table[i][j];
+			Sum[i+N] = Sum[i+N] + Table[i][j];
 		}
-		Count[i+N] = Sum;
 	}
-	
-	Sum = 0;
 	/*대각선 빙고*/
 	for(i=0;i<N;i++){
 		for(j=N;j>0;j--){
-		} Sum = Sum + Table[i][j];
-		Count[i+2*N] = Sum;
+		} Sum[i+2*N] = Sum[i+2*N] + Table[i][j];
+	}
+
+	for(i=0;i<2*N+2;i++){
+		if(Sum[i]==0){
+			Count++;
+		}
 	}
 	
+	return Count;	
 }
  
