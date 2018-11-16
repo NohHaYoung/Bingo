@@ -12,8 +12,9 @@
 
 int main(int argc, char *argv[]){
 	
-	int turn; // turn수를 세는 변수
+	int turn = 0; // turn수를 세는 변수
 	int Num; // 사용자가 입력한 정수
+	int Count1[M], Count2[M]; // 빙고 수를 세는 변수 
 	int BingoUser=0, BingoCom=0; 
 	
 	/* N*N 빙고 테이블 2개를 이차원 배열로 정의(Table1 : 사용자, Table2 : 컴퓨터)*/
@@ -27,7 +28,9 @@ int main(int argc, char *argv[]){
 	/*Game start*/
 	
 	while(1){
-			/*Table1 print*/
+		
+	
+	/*Table1 print*/
 	 printf("[player Table]\n");
 	 print_bingo(N, Table1); 
 	
@@ -35,19 +38,35 @@ int main(int argc, char *argv[]){
 	/* Table2 print*/
 	 printf("[Computer Table]\n");
 	 print_bingo(N, Table2);
-	
+	 
+
 	 printf("%d 번째 Turn / ", turn); 
 	 printf("사용자 : %d 줄 빙고, 컴퓨터 : %d 줄 빙고\n", BingoUser, BingoCom);
 	
 	/*사용자 숫자 선택*/
 	 get_number_byMe(N, Num, Table1, Table2);
-	 		
-	}
+	 
+	
+	 count_bingo(N, M, Table1, Count1);
+	 count_bingo(N, M, Table2, Count2);	 
 	
 	/*컴퓨터 숫자 선택*/
-	get_number_byCom(N, Num, Table1, Table2);
+	 get_number_byCom(N, Num, Table1, Table2);
+	
+	 count_bingo(N, M, Table1, Count1);
+	 count_bingo(N, M, Table2, Count2);
+	
+	turn++;
+	
+	/*M개의 줄이 만들어지면 게임 종료*/
+	 if(Count1 == M || Count2 == M )
+		break;		
+	}
+ 
+	
+
 	 
 	 
-	 
+
 	return 0;
 }
