@@ -77,36 +77,51 @@ int	print_bingo(int N, int Table[][N]){
  }
 
 /*빙고 수를 세는 함수*/
-int count_bingo(int N, int M, int Table[][N], int Count){
-	
+int count_bingo(int N, int M, int Table[][N]){
 	int i, j;
-	int Sum[2*N+2];
+	int Sum; // 빙고된 줄의 합은 -N
+	int Count=0;
 	
-	/*가로줄 빙고*/
+	/*가로줄 빙고 확인*/
 	for(i=0;i<N;i++){
-		for(j=0;j<N;j++){
-			Sum[i] = Sum[i] + Table[i][j];
+		Sum = 0; //Sum 값 초기화 
+		for(j=0; j<N; j++){
+			Sum += Table[i][j];
+		}
+		
+		if(Sum == -1*N){
+			Count = Count+1;
 		}
 	}
-	 
-	/*세로줄 빙고*/
+	/*세로줄 빙고 확인*/
 	for(j=0;j<N;j++){
+		Sum = 0; // Sum 값 초기화
 		for(i=0;i<N;i++){
-			Sum[i+N] = Sum[i+N] + Table[i][j];
+			Sum += Table[i][j];
+		}
+		if(Sum == -1*N){
+			Count = Count+1;
 		}
 	}
-	/*대각선 빙고*/
+	
+	/*대각선(i,i) 빙고 확인*/
+	Sum = 0;
 	for(i=0;i<N;i++){
-		for(j=N;j>0;j--){
-		} Sum[i+2*N] = Sum[i+2*N] + Table[i][j];
+		Sum += Table[i][i];
+	}
+	if(Sum == -1*N){
+		Count = Count+1;
+	}
+	
+	/*대각선(i,N-i-1) 빙고 확인*/
+	Sum = 0;
+	for(i=0;i<N;i++){
+		Sum += Table[i][N-i-1];
+	}
+	if(Sum == -1*N){
+		Count = Count+1;
 	}
 
-	for(i=0;i<2*N+2;i++){
-		if(Sum[i]==0){
-			Count++;
-		}
-	}
-	
-	return Count;	
+	return Count;
 }
  

@@ -12,6 +12,8 @@
 
 int main(int argc, char *argv[]){
 	
+	int Win; 
+	int Lose;
 	int turn = 0; // turn수를 세는 변수
 	int Num; // 사용자가 입력한 정수
 	int Count1, Count2; // 빙고 수를 세는 변수 
@@ -27,8 +29,8 @@ int main(int argc, char *argv[]){
 	
 	/*Game start*/
 	
-	while(1){
-	
+	do{
+
 	turn++;	
 	
 	/*Table1 print*/
@@ -45,36 +47,56 @@ int main(int argc, char *argv[]){
 	 printf("사용자 : %d 줄 빙고, 컴퓨터 : %d 줄 빙고\n", BingoUser, BingoCom);
 	
 	/*사용자 숫자 선택*/
-	 get_number_byMe(N, Num, Table1, Table2);
+	 Num = get_number_byMe(N, 0);
 	 
+	 process_bingo(N, Table1, Num);
+	 process_bingo(N, Table2, Num);
 	
-	 count_bingo(N, M, Table1, Count1);
-	 count_bingo(N, M, Table2, Count2);	 
+	/*M줄 빙고 확인*/
+	 Win = count_bingo(N, M, Table1);
+	 Lose = count_bingo(N, M, Table2);	 
+	 
+	 if(Win == M || Lose == M)
+	 	break; // 만약 한 쪽이라도 M 줄 빙고가 완성 되면 반복문을 빠져나옴 
 	
+	 
 	/*컴퓨터 숫자 선택*/
-	 get_number_byCom(N, Num, Table1, Table2);
-	
-	 count_bingo(N, M, Table1, Count1);
-	 count_bingo(N, M, Table2, Count2);
+	 get_number_byCom(N, 0);
 	 
-	
-	/*M개의 줄이 만들어지면 게임 종료*/
-	 if(Count1 == M || Count2 == M )
-		break;
-	}
- 
-	if(Count1 == M && Count2 != M){
-		printf("User Win, Turn = %d\n", turn);
-	}
-
-	else if(Count2 == M && Count1 != M){
-		printf("Computer Win, Turn = %d\n", turn);
-	}
-	else if(Count1 == M && Count2 == M){
-		printf("Draw\n");
-	}
-
+	 process_bingo(N, Table1, Num);
+	 process_bingo(N, Table2, Num);
 	 
+	 count_bingo(N, M, Table1);
+	 count_bingo(N, M, Table2);
 
+	/*M줄 빙고 확인*/
+	 Win = count_bingo(N, M, Table1);
+	 Lose = count_bingo(N, M, Table2);
+	 
+	}while((Win != M) && (Lose != M)); // 두 빙고 테이블 모두 M줄 빙고가 되지 않으면 do 반복 
+	
+	
+	/*Table1 print*/
+	 printf("[player Table]\n");
+	 print_bingo(N, Table1); 
+	
+	 
+	/* Table2 print*/
+	 printf("[Computer Table]\n");
+	 print_bingo(N, Table2);
+	 
+	if(Win == M && Lose != M){
+		printf("Player Win!\n");
+	}
+	else if (Win != M && Lose == M){
+		printf("Computer Win!\n");
+	}
+	else if(Win == M && Lose == M){
+		printf("Draw!\n");
+	}
+	else{
+		printf("Error!\n");
+	}
+	
 	return 0;
 }
