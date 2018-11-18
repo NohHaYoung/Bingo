@@ -4,7 +4,7 @@
 #include "BingoTable.h"
 #include "get_number.h"
 
-#define N 3 // N*N 빙고의 N값을 결정하는 기호 상수 
+#define N 5 // N*N 빙고의 N값을 결정하는 기호 상수 
 #define M 3 // 승패를 결정하는 기호상수, M개 줄이 먼저 완성된 쪽이 승리 
 
 #define ROWS N
@@ -67,7 +67,7 @@ int main(int argc, char *argv[]){
 	 Num = get_number_byCom(N, 0, CheckNum);
 	 CheckNum[cnt] = Num;
 	 cnt++; 
-	 
+	
 	 process_bingo(N, Table1, Num);
 	 process_bingo(N, Table2, Num);
 	 
@@ -92,12 +92,15 @@ int main(int argc, char *argv[]){
 	 
 	if(Win == M && Lose != M){
 		printf("Player Win!\n");
+		printf("Turn : %d\n", turn);
 	}
 	else if (Win != M && Lose == M){
 		printf("Computer Win!\n");
+		printf("%d Turn\n", turn);
 	}
 	else if(Win == M && Lose == M){
 		printf("Draw!\n");
+		printf("%d Turn\n", turn);
 	}
 	else{
 		printf("Error!\n");
