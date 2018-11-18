@@ -13,10 +13,12 @@
 
 int main(int argc, char *argv[]){
 	
-	int Win; 
-	int Lose;
+	int Win=0; 
+	int Lose=0;
 	int turn = 0; // turn수를 세는 변수
 	int Num; // 사용자가 입력한 정수
+	int CheckNum[N*N]; // 입력받은 정수를 저장하는 배열
+	int cnt=0; // CheckNum배열에 들어갈 변수 
 	
 	/* N*N 빙고 테이블 2개를 이차원 배열로 정의(Table1 : 사용자, Table2 : 컴퓨터)*/
 	 int Table1[ROWS][COLS];
@@ -46,7 +48,9 @@ int main(int argc, char *argv[]){
 	 printf("사용자 : %d 줄 빙고, 컴퓨터 : %d 줄 빙고\n", Win, Lose);
 	
 	/*사용자 숫자 선택*/
-	 Num = get_number_byMe(N, 0);
+	 Num = get_number_byMe(N, 0, CheckNum);
+	 CheckNum[cnt] = Num;
+	 cnt++; 
 	 
 	 process_bingo(N, Table1, Num);
 	 process_bingo(N, Table2, Num);
@@ -60,7 +64,9 @@ int main(int argc, char *argv[]){
 	
 	 
 	/*컴퓨터 숫자 선택*/
-	 get_number_byCom(N, 0);
+	 Num = get_number_byCom(N, 0, CheckNum);
+	 CheckNum[cnt] = Num;
+	 cnt++; 
 	 
 	 process_bingo(N, Table1, Num);
 	 process_bingo(N, Table2, Num);
