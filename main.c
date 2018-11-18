@@ -18,6 +18,11 @@ int main(int argc, char *argv[]){
 	int turn = 0; // turn수를 세는 변수
 	int Num; // 사용자가 입력한 정수
 	int CheckNum[N*N]; // 입력받은 정수를 저장하는 배열
+	/*CheckNum배열의 모든 값을 0으로 초기화*/
+	int m;
+	 for(m=0;m<N*N;m++){
+	 	CheckNum[m] = 0;
+	 }
 	int cnt=0; // CheckNum배열에 들어갈 변수 
 	
 	/* N*N 빙고 테이블 2개를 이차원 배열로 정의(Table1 : 사용자, Table2 : 컴퓨터)*/
