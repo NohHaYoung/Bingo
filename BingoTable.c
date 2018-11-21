@@ -40,7 +40,7 @@ int initiate_bingo(int N, int Table1[][N], int Table2[][N]){
 		}
 
 	//배열 A와 B의 값이 다르게 설정되도록 셔플(Computer Bingo Table != Player Bingo Table) 
-	for(i=0;i<N;i++){
+	for(i=0;i<N*N;i++){
 		rnd = rand()%max;
 		
 		temp = CheckNum[i];
@@ -77,10 +77,10 @@ int	print_bingo(int N, int Table[][N]){
  }
 
 /*빙고 수를 세는 함수*/
-int count_bingo(int N, int M, int Table[][N]){
+int count_bingo(int N, int Table[][N]){
 	int i, j;
 	int Sum; // 빙고된 줄의 합은 -N
-	int Count=0;
+	int Count=0; // 현재 빙고된 줄의 수를 저장하는 변수, Sum=-N이면 Count값을 증가시키고 최종 Count 값을 메인함수로 return, return 값이 M이 되면 게임 종료 
 	
 	/*가로줄 빙고 확인*/
 	for(i=0;i<N;i++){
@@ -88,9 +88,9 @@ int count_bingo(int N, int M, int Table[][N]){
 		for(j=0; j<N; j++){
 			Sum += Table[i][j];
 		}
-		
+		/*만약 Sum = -N 이면 Count값 1 증가*/
 		if(Sum == -1*N){
-			Count = Count+1;
+			Count = Count+1; 
 		}
 	}
 	/*세로줄 빙고 확인*/
@@ -104,20 +104,22 @@ int count_bingo(int N, int M, int Table[][N]){
 		}
 	}
 	
-	/*대각선(i,i) 빙고 확인*/
+	/*대각선(i,i) 빙고 확인(왼쪽위에서 오른쪽 아래 방향)*/
 	Sum = 0;
 	for(i=0;i<N;i++){
 		Sum += Table[i][i];
 	}
+	/*만약 Sum = -N 이면 Count값 1 증가*/
 	if(Sum == -1*N){
 		Count = Count+1;
 	}
 	
-	/*대각선(i,N-i-1) 빙고 확인*/
+	/*대각선(i,N-i-1) 빙고 확인(오른쪽위에서 왼쪽 아래 방향)*/
 	Sum = 0;
 	for(i=0;i<N;i++){
 		Sum += Table[i][N-i-1];
 	}
+	/*만약 Sum = -N 이면 Count값 1 증가*/
 	if(Sum == -1*N){
 		Count = Count+1;
 	}
