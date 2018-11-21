@@ -108,7 +108,7 @@ int main(int argc, char *argv[]){
 		printf("Draw! ");
 		printf("%d 번째 Turn에서 게임 종료\n", turn);
 	}
-	/*그 이외의 경우 : 에러*/
+	/*그 이외의 경우 : 에러 - 이 경우에는 do-while문을 빠져나오지 못해서 발생하지 않음.*/
 	else{
 		printf("Error!\n");
 	}

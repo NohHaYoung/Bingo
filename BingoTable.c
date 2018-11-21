@@ -30,7 +30,7 @@ int initiate_bingo(int N, int Table1[][N], int Table2[][N]){
 			 i++;
 		
 		}
-	/*i값 초기화 후 1차원 배열 CheckNum을 2차원배열 A로 옮김*/ 
+	/*i값 초기화 후 1차원 배열 CheckNum을 2차원배열 Table1로 옮김*/ 
 	i = 0;
 		for(int m=0; m<N; m++){
 			for(n=0;n<N;n++){
@@ -39,7 +39,7 @@ int initiate_bingo(int N, int Table1[][N], int Table2[][N]){
 			}
 		}
 
-	//배열 A와 B의 값이 다르게 설정되도록 셔플(Computer Bingo Table != Player Bingo Table) 
+	//배열 Table1과 Table2의 값이 다르게 설정되도록 셔플
 	for(i=0;i<N*N;i++){
 		rnd = rand()%max;
 		
@@ -49,7 +49,7 @@ int initiate_bingo(int N, int Table1[][N], int Table2[][N]){
 		
 	}
 	
-	/*i값 초기화 후 1차원 배열 CheckNum을 2차원배열 B로 옮김*/
+	/*i값 초기화 후 1차원 배열 CheckNum을 2차원배열 Table2로 옮김*/
 	i = 0;
 		for(int m=0; m<N; m++){
 			for(n=0;n<N;n++){
